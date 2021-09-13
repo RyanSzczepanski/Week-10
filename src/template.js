@@ -53,6 +53,12 @@ const createTeam = team => {
         </div>
         `
     }
+
+    const html = [];
+
+    html.push(team);
+
+    return html.join("");
 }
 
 
