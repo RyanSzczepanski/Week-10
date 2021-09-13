@@ -203,8 +203,8 @@ function main() {
     }
     function outputTeam() {
         // Create the output directory if the output path doesn't exist
-        if (!fs.existsSync(OUTPUT_DIR)) {
-            fs.mkdirSync(OUTPUT_DIR)
+        if (!fs.existsSync(output_dir)) {
+            fs.mkdirSync(output_dir)
         }
         fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
     }
