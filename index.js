@@ -41,6 +41,12 @@ function main() {
                 type: "input",
                 name: "managerEmail",
                 message: "What is the team manager's email?",
+                validate: answer => {
+                    if (answer !== "") {
+                      return true;
+                    }
+                    return "Please enter at least one character.";
+                  }
             },
             {
                 type: "input",
@@ -59,6 +65,60 @@ function main() {
             idArray.push(answers.managerId);
             createTeam();
         });
+
+        function createEngineer() {
+            inquirer.prompt([
+              {
+                type: "input",
+                name: "engineerName",
+                message: "What is your engineer's name?",
+                validate: answer => {
+                  if (answer !== "") {
+                    return true;
+                  }
+                  return "Please enter at least one character.";
+                }
+              },
+              {
+                type: "input",
+                name: "engineerId",
+                message: "What is your engineer's id?",
+                validate: answer => {
+                    if (!isNaN(parseInt(answer)) && parseInt(answer) > 0) {
+                        return true;
+                    }
+                    return "Please enter a positive number greater than zero.";
+                }
+              },
+              {
+                type: "input",
+                name: "engineerEmail",
+                message: "What is your engineer's email?",
+                validate: answer => {
+                    if (answer !== "") {
+                      return true;
+                    }
+                    return "Please enter at least one character.";
+                  }
+              },
+              {
+                type: "input",
+                name: "engineerGithub",
+                message: "What is your engineer's GitHub username?",
+                validate: answer => {
+                  if (answer !== "") {
+                    return true;
+                  }
+                  return "Please enter at least one character.";
+                }
+              }
+            ]).then(answers => {
+              const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+              teamMembers.push(engineer);
+              idArray.push(answers.engineerId);
+              createTeam();
+            });
+          }
     }
     createManager()
 }
