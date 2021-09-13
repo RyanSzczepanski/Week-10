@@ -43,10 +43,10 @@ function main() {
                 message: "What is the team manager's email?",
                 validate: answer => {
                     if (answer !== "") {
-                      return true;
+                        return true;
                     }
                     return "Please enter at least one character.";
-                  }
+                }
             },
             {
                 type: "input",
@@ -68,57 +68,111 @@ function main() {
 
         function createEngineer() {
             inquirer.prompt([
-              {
-                type: "input",
-                name: "engineerName",
-                message: "What is your engineer's name?",
-                validate: answer => {
-                  if (answer !== "") {
-                    return true;
-                  }
-                  return "Please enter at least one character.";
-                }
-              },
-              {
-                type: "input",
-                name: "engineerId",
-                message: "What is your engineer's id?",
-                validate: answer => {
-                    if (!isNaN(parseInt(answer)) && parseInt(answer) > 0) {
-                        return true;
+                {
+                    type: "input",
+                    name: "engineerName",
+                    message: "What is your engineer's name?",
+                    validate: answer => {
+                        if (answer !== "") {
+                            return true;
+                        }
+                        return "Please enter at least one character.";
                     }
-                    return "Please enter a positive number greater than zero.";
-                }
-              },
-              {
-                type: "input",
-                name: "engineerEmail",
-                message: "What is your engineer's email?",
-                validate: answer => {
-                    if (answer !== "") {
-                      return true;
+                },
+                {
+                    type: "input",
+                    name: "engineerId",
+                    message: "What is your engineer's id?",
+                    validate: answer => {
+                        if (!isNaN(parseInt(answer)) && parseInt(answer) > 0) {
+                            return true;
+                        }
+                        return "Please enter a positive number greater than zero.";
                     }
-                    return "Please enter at least one character.";
-                  }
-              },
-              {
-                type: "input",
-                name: "engineerGithub",
-                message: "What is your engineer's GitHub username?",
-                validate: answer => {
-                  if (answer !== "") {
-                    return true;
-                  }
-                  return "Please enter at least one character.";
+                },
+                {
+                    type: "input",
+                    name: "engineerEmail",
+                    message: "What is your engineer's email?",
+                    validate: answer => {
+                        if (answer !== "") {
+                            return true;
+                        }
+                        return "Please enter at least one character.";
+                    }
+                },
+                {
+                    type: "input",
+                    name: "engineerGithub",
+                    message: "What is your engineer's GitHub username?",
+                    validate: answer => {
+                        if (answer !== "") {
+                            return true;
+                        }
+                        return "Please enter at least one character.";
+                    }
                 }
-              }
             ]).then(answers => {
-              const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
-              teamMembers.push(engineer);
-              idArray.push(answers.engineerId);
-              createTeam();
+                const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+                teamMembers.push(engineer);
+                idArray.push(answers.engineerId);
+                createTeam();
             });
-          }
+        }
+
+        function createIntern() {
+            inquirer.prompt([
+                {
+                    type: "input",
+                    name: "internName",
+                    message: "What is your intern's name?",
+                    validate: answer => {
+                        if (answer !== "") {
+                            return true;
+                        }
+                        return "Please enter at least one character.";
+                    }
+                },
+                {
+                    type: "input",
+                    name: "internId",
+                    message: "What is your intern's id?",
+                    validate: answer => {
+                        if (!isNaN(parseInt(answer)) && parseInt(answer) > 0) {
+                            return true;
+                        }
+                        return "Please enter a positive number greater than zero.";
+                    }
+                },
+                {
+                    type: "input",
+                    name: "internEmail",
+                    message: "What is your intern's email?",
+                    validate: answer => {
+                        if (answer !== "") {
+                            return true;
+                        }
+                        return "Please enter at least one character.";
+                    }
+                },
+                {
+                    type: "input",
+                    name: "internSchool",
+                    message: "What is your intern's school?",
+                    validate: answer => {
+                        if (answer !== "") {
+                            return true;
+                        }
+                        return "Please enter at least one character.";
+                    }
+                }
+            ]).then(answers => {
+                const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+                teamMembers.push(intern);
+                idArray.push(answers.internId);
+                createTeam();
+            });
+        }
     }
     createManager()
 }
