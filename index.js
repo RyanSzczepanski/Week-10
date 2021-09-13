@@ -66,6 +66,33 @@ function main() {
             createTeam();
         });
 
+        function createTeam() {
+
+            inquirer.prompt([
+              {
+                type: "list",
+                name: "memberChoice",
+                message: "Which type of team member would you like to add?",
+                choices: [
+                  "Engineer",
+                  "Intern",
+                  "Done"
+                ]
+              }
+            ]).then(userChoice => {
+              switch (userChoice.memberChoice) {
+                case "Engineer":
+                  createEngineer();
+                  break;
+                case "Intern":
+                  createIntern();
+                  break;
+                default:
+                  buildTeam();
+              }
+            });
+          }
+
         function createEngineer() {
             inquirer.prompt([
                 {
