@@ -19,13 +19,13 @@ test("Set Id of Engineer", () => {
 
 test("Set Email of Engineer", () => {
     email = "user@email.com"
-    e = new Engineer("foo", "1", email);
+    e = new Engineer("foo", 1, email);
     expect(e.email).toBe(email)
 })
 
 test("Set Github of Engineer", () => {
     github = "user.github.com"
-    e = new Engineer("foo", "1", "user@email.com", github);
+    e = new Engineer("foo", 1, "user@email.com", github);
     expect(e.github).toBe(github)
 })
 
@@ -43,13 +43,13 @@ test("Get Id of Engineer", () => {
 
 test("Get Email of Engineer", () => {
     email = "user@email.com"
-    e = new Engineer("foo", "1", email);
+    e = new Engineer("foo", 1, email);
     expect(e.getEmail()).toBe(email)
 })
 
 test("Get Github of Engineer", () => {
     github = "user.github.com"
-    e = new Engineer("foo", "1", "user@email.com", github);
+    e = new Engineer("foo", 1, "user@email.com", github);
     expect(e.getGithub()).toBe(github)
 })
 
