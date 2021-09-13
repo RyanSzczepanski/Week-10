@@ -19,7 +19,7 @@ test("Set Id of Employee", () => {
 
 test("Set Email of Employee", () => {
     email = "user@email.com"
-    e = new Employee("foo", "1", email);
+    e = new Employee("foo", 1, email);
     expect(e.email).toBe(email)
 })
 
@@ -37,7 +37,7 @@ test("Get Id of Employee", () => {
 
 test("Get Email of Employee", () => {
     email = "user@email.com"
-    e = new Employee("foo", "1", email);
+    e = new Employee("foo", 1, email);
     expect(e.getEmail()).toBe(email)
 })
 
