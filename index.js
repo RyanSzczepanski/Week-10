@@ -69,29 +69,29 @@ function main() {
         function createTeam() {
 
             inquirer.prompt([
-              {
-                type: "list",
-                name: "memberChoice",
-                message: "Which type of team member would you like to add?",
-                choices: [
-                  "Engineer",
-                  "Intern",
-                  "Done"
-                ]
-              }
+                {
+                    type: "list",
+                    name: "memberChoice",
+                    message: "Which type of team member would you like to add?",
+                    choices: [
+                        "Engineer",
+                        "Intern",
+                        "Done"
+                    ]
+                }
             ]).then(userChoice => {
-              switch (userChoice.memberChoice) {
-                case "Engineer":
-                  createEngineer();
-                  break;
-                case "Intern":
-                  createIntern();
-                  break;
-                default:
-                  buildTeam();
-              }
+                switch (userChoice.memberChoice) {
+                    case "Engineer":
+                        createEngineer();
+                        break;
+                    case "Intern":
+                        createIntern();
+                        break;
+                    default:
+                        outputTeam();
+                }
             });
-          }
+        }
 
         function createEngineer() {
             inquirer.prompt([
@@ -201,17 +201,15 @@ function main() {
             });
         }
     }
+    function outputTeam() {
+        // Create the output directory if the output path doesn't exist
+        if (!fs.existsSync(OUTPUT_DIR)) {
+            fs.mkdirSync(OUTPUT_DIR)
+        }
+        fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+    }
+
     createManager()
 }
-
-
-
-// let employee = new Intern("Name", 0, "employee@email.com", "Github")
-// console.log(`Name: ${employee.getName()}
-// Id: ${employee.getId()}
-// Email: ${employee.getEmail()}
-// Role: ${employee.getRole()}
-// School: ${employee.getSchool()}`);
-
 
 main();
