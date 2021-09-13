@@ -19,13 +19,13 @@ test("Set Id of Manager", () => {
 
 test("Set Email of Manager", () => {
     email = "user@email.com"
-    m = new Manager("foo", "1", email);
+    m = new Manager("foo", 1, email);
     expect(m.email).toBe(email)
 })
 
 test("Set Office Number of Manager", () => {
     officeNumber = 1
-    m = new Manager("foo", "1", "user@email.com", officeNumber);
+    m = new Manager("foo", 1, "user@email.com", officeNumber);
     expect(m.officeNumber).toBe(officeNumber)
 })
 
@@ -43,13 +43,13 @@ test("Get Id of Manager", () => {
 
 test("Get Email of Manager", () => {
     email = "user@email.com"
-    m = new Manager("foo", "1", email);
+    m = new Manager("foo", 1, email);
     expect(m.getEmail()).toBe(email)
 })
 
 test("Get Office Number of Manager", () => {
     officeNumber = 1
-    m = new Manager("foo", "1", "user@email.com", officeNumber);
+    m = new Manager("foo", 1, "user@email.com", officeNumber);
     expect(m.getOfficeNumber()).toBe(officeNumber)
 })
 
