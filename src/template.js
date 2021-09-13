@@ -1,4 +1,6 @@
+const createTeam = team => {
 
+}
 
 
 module.exports = team => {
@@ -18,7 +20,6 @@ module.exports = team => {
             integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
     
-        <!-- <script src="https://kit.fontawesome.com/c502137733.js"></script> -->
     </head>
     
     <body>
