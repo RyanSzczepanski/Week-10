@@ -19,13 +19,13 @@ test("Set Id of Intern", () => {
 
 test("Set Email of Intern", () => {
     email = "user@email.com"
-    i = new Intern("foo", "1", email);
+    i = new Intern("foo", 1, email);
     expect(i.email).toBe(email)
 })
 
 test("Set Office Number of Intern", () => {
     school = "Simsbury High School"
-    i = new Intern("foo", "1", "user@email.com", school);
+    i = new Intern("foo", 1, "user@email.com", school);
     expect(i.school).toBe(school)
 })
 
@@ -43,13 +43,13 @@ test("Get Id of Intern", () => {
 
 test("Get Email of Intern", () => {
     email = "user@email.com"
-    i = new Intern("foo", "1", email);
+    i = new Intern("foo", 1, email);
     expect(i.getEmail()).toBe(email)
 })
 
 test("Get Office Number of Intern", () => {
     school = "Simsbury High School"
-    i = new Intern("foo", "1", "user@email.com", school);
+    i = new Intern("foo", 1, "user@email.com", school);
     expect(i.getSchool()).toBe(school)
 })
 
