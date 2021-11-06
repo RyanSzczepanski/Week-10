@@ -2,7 +2,7 @@ const createTeam = team => {
 
     const createManager = manager => {
         return `
-        <div class="card employee-card">
+        <div class="card">
             <div class="card-header">
                 <h2 class="card-title">${manager.getName()}</h2>
                 <h3 class="card-title">${manager.getRole()}</h3>
@@ -20,7 +20,7 @@ const createTeam = team => {
 
     const createEngineer = engineer => {
         return `
-        <div class="card employee-card">
+        <div class="card">
             <div class="card-header">
                 <h2 class="card-title">${engineer.getName()}</h2>
                 <h3 class="card-title"></i>${engineer.getRole()}</h3>
@@ -38,7 +38,7 @@ const createTeam = team => {
 
     const createIntern = intern => {
         return `
-        <div class="card employee-card">
+        <div class="card">
             <div class="card-header">
                 <h2 class="card-title">${intern.getName()}</h2>
                 <h3 class="card-title">${intern.getRole()}</h3>
@@ -57,16 +57,16 @@ const createTeam = team => {
     const html = [];
 
     html.push(team
-        .filter(employee => employee.getRole() === "Manager")
+        .filter(employee => employee.getRole() == "Manager")
         .map(manager => createManager(manager))
     );
     html.push(team
-        .filter(employee => employee.getRole() === "Engineer")
+        .filter(employee => employee.getRole() == "Engineer")
         .map(engineer => createEngineer(engineer))
         .join("")
     );
     html.push(team
-        .filter(employee => employee.getRole() === "Intern")
+        .filter(employee => employee.getRole() == "Intern")
         .map(intern => createIntern(intern))
         .join("")
     );
@@ -90,21 +90,19 @@ module.exports = team => {
     
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
-    
     </head>
     
     <body>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 jumbotron mb-3 team-heading">
+                <div class="col-12">
                     <h1 class="text-center">My Team</h1>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="team-area col-12 d-flex justify-content-center">
+                <div class="col-12 d-flex justify-content-center">
                     ${createTeam(team)}
                 </div>
             </div>
